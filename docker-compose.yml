@@ -1,0 +1,25 @@
+services:
+  postgresql:
+    image: docker.io/bitnami/postgresql:latest
+    volumes:
+      - 'postgresql_data:/bitnami/postgresql'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - POSTGRESQL_USERNAME=bn_odoo
+      - POSTGRESQL_DATABASE=db_odoo
+  odoo:
+    image: docker.io/bitnami/odoo:17
+    ports:
+      - '8069:8069'
+    volumes:
+      - './data/:/bitnami/odoo'
+    depends_on:
+      - postgresql
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - ODOO_DATABASE_HOST=postgresql
+      - ODOO_DATABASE_PORT_NUMBER=5432
+      - ODOO_DATABASE_USER=bn_odoo
+      - ODOO_DATABASE_NAME=db_odoo
+volumes:
+  postgresql_data:

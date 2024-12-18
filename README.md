@@ -1,4 +1,4 @@
 # docker-odoo17
 
-# Run a command
-docker compose up
+### How to use
+run ```docker compose up [-d]```

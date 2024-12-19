@@ -5,3 +5,5 @@
 add your custom module in ```data/addons/custom/```
 
 run ```docker compose up [-d]```
+
+option -d for daemon mode

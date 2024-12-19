@@ -1,0 +1,5 @@
+# web data path
+data/data
+
+# custum module path
+data/addons/custom
